@@ -34,6 +34,7 @@ from queue import Queue
 from threading import Thread
 from time import sleep
 from whisper.tokenizer import LANGUAGES
+import requests
 
 
 def main(page: ft.Page):
@@ -429,6 +430,12 @@ def main(page: ft.Page):
     always_on_top_callback(None)
     text_background_callback(None)
 
+    # Set up api calls config
+    # url = 'https://bullfrog-equipped-actually.ngrok-free.app/processTextNEDAPDeid'
+    url = 'https://bullfrog-equipped-actually.ngrok-free.app/processTextPhilter'
+    headers = {'Content-Type': 'application/json'}
+
+
     #
     # Control loops.
     #
@@ -519,6 +526,10 @@ def main(page: ft.Page):
 
                 result = audio_model.transcribe(audio_normalised, language=language, task=task)
                 text = result['text'].strip()
+                response = requests.post(url, headers=headers, json={'text' : text})
+                # Check the response status code
+                if response.status_code == 200:
+                    text = response.json()['result']
 
                 color = None
                 if text_background_checkbox.value:

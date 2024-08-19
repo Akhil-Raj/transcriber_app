@@ -4,3 +4,8 @@ pyaudio
 --extra-index-url https://download.pytorch.org/whl/cu116
 torch
 git+https://github.com/openai/whisper.git
+chardet==3.0.4
+nltk==3.6.6
+numpy==1.22.0
+pandas
+xmltodict==0.12.0
