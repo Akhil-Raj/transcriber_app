@@ -2,9 +2,9 @@ always_on_top: false
 dark_mode: false
 language: en
 max_record_time: 30
-microphone_index: 0
+microphone_index: 1
 seconds_of_silence_between_lines: 0.5
-speech_model: base
+speech_model: tiny
 text_background: false
 text_size: 24
 transcribe_rate: 0.5
@@ -12,4 +12,4 @@ translate: false
 transparent: false
 volume_threshold: 0.0
 window_height: 900.0
-window_width: 817.0
+window_width: 1440.0
